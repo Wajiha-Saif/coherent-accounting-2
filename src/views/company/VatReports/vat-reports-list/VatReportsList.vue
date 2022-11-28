@@ -18,7 +18,7 @@
             :clearable="false"
             class="per-page-selector d-inline-block ml-50 mr-1"
           />
-          <b-button variant="primary" @click="actionTab"> Add Record </b-button>
+          <b-button variant="primary" @click="actionTab" :to="{ name: 'company-vat-report-add', params: { companyId: $route.params.id  }}"> Add Record </b-button>
         </b-col>
 
         <!-- Search -->
@@ -131,7 +131,7 @@
           class="mx-1 cursor-pointer"
         />
         <b-tooltip
-          title="Preview Invoice"
+          title="Preview Report"
           class="cursor-pointer"
           :target="`invoice-row-${data.item.id}-preview-icon`"
         />
