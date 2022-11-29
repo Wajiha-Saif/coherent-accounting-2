@@ -154,7 +154,7 @@
             <feather-icon icon="DownloadIcon" />
             <span class="align-middle ml-50">Download</span>
           </b-dropdown-item> -->
-          <b-dropdown-item
+          <b-dropdown-item  :to="{ name: 'company-vat-report-edit', params: { companyId: companyID , id: data.item.id }}"
           >
             <feather-icon icon="EditIcon" />
             <span class="align-middle ml-50">Edit</span>
@@ -202,6 +202,7 @@ import VueHtml2pdf from "vue-html2pdf";
 import vatReportsStoreModule from "../vatReportsStoreModule";
 import useJwt from "@/auth/jwt/useJwt";
 import ToastificationContent from "@core/components/toastification/ToastificationContent.vue";
+import router from "@/router";
 //   import InvoiceDownload from '../invoice-download/InvoiceDownload.vue'
 export default {
   props: ["vatReportsTab"],
@@ -245,6 +246,16 @@ export default {
     //         });
     //       });
     //   }
+  },
+  data(){
+    return{
+      companyID: ''
+    }
+
+  },
+  created: function () {
+    this.companyID = this.$route.params.id;
+
   },
   components: {
     BCard,
